@@ -1,0 +1,57 @@
+.demo-controls-wrapper{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+    z-index: 100000;
+}
+
+.demo-controls-wrapper:hover > .demo-controls{
+    opacity: 1;
+    transform: none;
+}
+
+.demo-open-button{
+    cursor: pointer;
+    outline: 0;
+    border: 0;
+
+    background-color: rgb(49, 49, 53);
+    color: white;
+    padding: 10px 20px;
+}
+
+.demo-controls{
+    transform: translateY(-50%);
+    opacity: 0;
+
+    transition: opacity .2s, transform .2s;
+
+    list-style: none;
+    color: white;
+    margin: 10px 0 0 0;
+    padding: 0;
+
+    background-color: rgb(49, 49, 53);
+}
+
+.demo-controls li{
+    padding: 10px 20px;
+    transition: background .2s;
+    cursor: pointer;
+}
+
+.demo-controls li:hover{
+    background-color: rgb(36, 36, 39);
+}
+
+
+.demo-controls-frame{
+    display: none;
+}
+
+.demo-controls-frame.active{
+    display: flex;
+    flex-direction: column;
+}
+
