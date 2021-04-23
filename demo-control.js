@@ -14,8 +14,31 @@ class DemoControl {
             console.error('DemoControl:', `${this.selector} does not exist in document.`)
             return;
         }
+        
 
         // -----
+
+        // Check if options exist
+
+        if(!this.options){
+            console.error('DemoControl:', `Options must be created`)
+            return;
+        }
+
+        // -----
+
+
+        // Auto add frame-class
+
+        this.options.frameList.forEach(frame => {
+            let id = frame.id;
+            if(document.getElementById(`${id}`)){
+                document.getElementById(`${id}`).classList.add('demo-controls-frame');
+            } else {
+                console.error('DemoControl:', `Frame with id ${id} does not exist.`)
+                return;
+            }
+        })
 
         // Ckeck frameList
 
@@ -115,15 +138,10 @@ class DemoControl {
     }
 }
 
-let demo = new DemoControl('body', {
+const demka = new DemoControl('body', {
     frameList: [
-        { name: "Фрейм 0", id: 0 },
-        { name: "Фрейм 1", id: 1 },
-        { name: "Фрейм 2", id: 2 }
-    ],
-    buttonText: 'Управление',
-    buttonPosition: {
-        top: 20,
-        left: 20
-    }
+        {name: 'Фрейм 1', id: 0},
+        {name: 'Фрейм 2', id: 1},
+        {name: 'Фрейм 3', id: 2}
+    ]
 });
