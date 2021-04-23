@@ -9,13 +9,41 @@ class DemoControl{
 
     init(){
         // Check selector
+
         if(!document.querySelector(this.selector)){
             console.error('DemoControl:',`${this.selector} does not exist in document.`)
+            return;
         }
+
+        // -----
+
+        // Ckeck frameList
+
+        if(!this.options.frameList || !Array.isArray(this.options.frameList)){
+            console.error('DemoControl:',`Frame list must be an array.`);
+            return;
+        } else {
+            if(this.options.frameList.length === 0){
+                console.error('DemoControl:',`Frame list can't be empty.`);
+                return;
+            }
+        }
+        
+        // -----
+
+
+
+        
     }
 }
 
-let demo = new DemoControl('.some');
+let demo = new DemoControl('body', {
+    frameList: [
+        {name: "Фрейм 0", id: 0},
+        {name: "Фрейм 1", id: 1},
+        {name: "Фрейм 2", id: 2}
+    ]
+});
 
 const framesList = [
     {name: "Фрейм 0", id: 0},
