@@ -40,6 +40,9 @@ class DemoControl {
         // -----
 
 
+        
+
+
         // Creating template
 
 
@@ -88,9 +91,27 @@ class DemoControl {
 
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelector(this.selector).append(demoControlsWrapper);
+
+            // Check ButtonPosition
+
+                if(this.options.buttonPosition){
+                    if(typeof this.options.buttonPosition === "object"){
+                        let wrapperClass = document.querySelector('.demo-controls-wrapper');
+                        
+                        wrapperClass.style.top = this.options.buttonPosition.top + 'px';
+                        wrapperClass.style.left = this.options.buttonPosition.left + 'px';
+                    } else {
+                        console.error('DemoControl:', `buttonPosition must by an object`);
+                        return;
+                    }
+                }
+
+            // ----
         })
 
         // ----
+
+        
     }
 }
 
@@ -100,5 +121,9 @@ let demo = new DemoControl('body', {
         { name: "Фрейм 1", id: 1 },
         { name: "Фрейм 2", id: 2 }
     ],
-    buttonText: 'Управление'
+    buttonText: 'Управление',
+    buttonPosition: {
+        top: 20,
+        left: 20
+    }
 });
