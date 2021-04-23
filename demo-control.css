@@ -4,6 +4,8 @@
     left: 20px;
 
     z-index: 100000;
+
+    font-family: Arial;
 }
 
 .demo-controls-wrapper:hover > .demo-controls{
