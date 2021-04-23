@@ -2,6 +2,7 @@ class DemoControl {
     constructor(selector, options) {
         this.selector = selector;
         this.options = options;
+        this.buttonText = "Control";
         this.init();
     }
 
@@ -30,6 +31,13 @@ class DemoControl {
 
         // -----
 
+        // Check buttonText
+
+        if(this.options.buttonText){
+            this.buttonText = this.options.buttonText;
+        }
+
+        // -----
 
 
         // Creating template
@@ -40,7 +48,7 @@ class DemoControl {
 
         let demoOpenButton = document.createElement('button');
         demoOpenButton.classList.add('demo-open-button');
-        demoOpenButton.innerText = 'Управление';
+        demoOpenButton.innerText = this.buttonText;
 
         let demoControls = document.createElement('ul');
         demoControls.classList.add('demo-controls');
@@ -91,5 +99,6 @@ let demo = new DemoControl('body', {
         { name: "Фрейм 0", id: 0 },
         { name: "Фрейм 1", id: 1 },
         { name: "Фрейм 2", id: 2 }
-    ]
+    ],
+    buttonText: 'Управление'
 });
